@@ -1,8 +1,16 @@
 #!/bin/sh
 
-PROXY_DIR=/home/$(id -un)/wayland-proxy
+# WAYLAND_USER=0 # Hardcoded because hardcoded in ubuntu-frame
+# WAYLAND_DISPLAY=wayland-0
+# HOME_USER=1000 # Hardcoded now because..
+echo "WAYLAND_DISPLAY: $WAYLAND_DISPLAY"
+echo "XDG_RUNTIME_DIR: $XDG_RUNTIME_DIR"
+
+exit -1
+
+PROXY_DIR=/home/$HOME_USER/wayland-proxy
 PROXY_PATH=$PROXY_DIR/$WAYLAND_DISPLAY
-WAYLAND_DIR=/run/user/$(id -u)
+WAYLAND_DIR=/run/user/$WAYLAND_USER
 WAYLAND_SOCKET=$WAYLAND_DIR/$WAYLAND_DISPLAY
 
 # echo "Starting socat to connect $WAYLAND_SOCKET with $PROXY_PATH"

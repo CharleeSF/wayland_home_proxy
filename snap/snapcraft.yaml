@@ -12,12 +12,12 @@ parts:
   socat:
     plugin: dump
     source: proxy-wayland
-    organize:
-      proxy-wayland.sh: bin/proxy-wayland.sh
+    # organize:
+    #   proxy-wayland.sh: bin/proxy-wayland.sh
 
 apps:
   wayland-home-proxy:
-    command: bin/proxy-wayland.sh
+    command: proxy-wayland.sh
     plugs:
       - home
       - wayland
