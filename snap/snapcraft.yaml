@@ -1,0 +1,25 @@
+name: wayland-home-proxy
+base: core22
+version: '0.1'
+summary: Proxy wayland socket to home directory
+description: |
+  Give access to wayland socket to apps that only have access to home directory
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+parts:
+  socat:
+    plugin: dump
+    source: socat
+    stage-packages:
+      - socat
+    organize:
+      socat-wayland.sh: bin/socat-wayland.sh
+
+apps:
+  wayland-home-proxy:
+    command: bin/socat-wayland.sh
+    plugs:
+      - home
+      - wayland
