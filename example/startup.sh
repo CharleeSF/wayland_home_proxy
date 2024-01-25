@@ -12,5 +12,5 @@ fi
 
 ls -l $WAYLAND_SOCKET
 
-strace -o /tmp/tmp.log /app/foo/build/linux/x64/release/bundle/flutter_with_depedencies
+/app/foo/build/linux/x64/release/bundle/flutter_with_depedencies
 

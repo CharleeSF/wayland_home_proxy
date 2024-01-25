@@ -18,9 +18,11 @@ sudo snap install ubuntu-frame
 snapcraft
 sudo snap install --devmode wayland-home-proxy_0.1_amd64.snap
 sudo snap connect wayland-home-proxy:wayland ubuntu-frame:wayland
+# Start the snap
 
 # Build and run docker
-docker build --rm -f ./example/Dockerflutter -t flutter_docker .
+cd example
+docker build --rm -f ./Dockerflutter -t flutter_docker .
 docker run -e XDG_RUNTIME_DIR=/tmp -e WAYLAND_DISPLAY=wayland-0 -v /home/$(id -un)/wayland-proxy/link:/tmp flutter_docker
 ```
 

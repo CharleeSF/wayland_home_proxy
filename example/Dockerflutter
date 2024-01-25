@@ -25,10 +25,7 @@ RUN apt-get install -y libstdc++-12-dev
 
 RUN flutter build linux
 
-COPY example/startup.sh .
-
-RUN apt-get install -y socat
-RUN apt-get install -y strace
+COPY startup.sh .
 
 ENV DISPLAY=":0"
 
